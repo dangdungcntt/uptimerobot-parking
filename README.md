@@ -16,6 +16,7 @@ cd uptimerobot-parking
 docker build -t uptimerobot-parking .
 docker run -d \
     -e UPTIMEROBOT_DASHBOARD_ID=<status_page_id> \
+    -p 8080:80 \
     uptimerobot-parking
 ```
 
@@ -24,8 +25,11 @@ docker run -d \
 ```bash
 docker run -d \
     -e UPTIMEROBOT_DASHBOARD_ID=<status_page_id> \
+    -p 8080:80 \
     dangdungcntt/uptimerobot-parking
 ```
+
+Your status page can access via: `http://localhost:8080`
 
 ## Using native nginx installed on your system
 
