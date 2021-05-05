@@ -2,11 +2,13 @@
 
 Parking any domain to Uptimerobot Status Page without PRO Plan.
 
-# Get Status Page ID
+## Get Status Page ID
 
 Uptimerobot status page ID can found on your Uptimerobot status page url: `https://stats.uptimerobot.com/<status_page_id>`
 
-# Using Docker
+## Using Docker
+
+### Build your image:
 
 ```bash
 git clone https://github.com/dangdungcntt/uptimerobot-parking.git
@@ -17,6 +19,14 @@ docker run -d \
     uptimerobot-parking
 ```
 
-# Using native nginx installed on your system
+### Use my image:
+
+```bash
+docker run -d \
+    -e UPTIMEROBOT_DASHBOARD_ID=<status_page_id> \
+    dangdungcntt/uptimerobot-parking
+```
+
+## Using native nginx installed on your system
 
 Copy contents of `templates/default.conf.template` file and replace `${UPTIMEROBOT_DASHBOARD_ID}` with your `<status_page_id>`
