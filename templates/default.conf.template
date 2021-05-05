@@ -1,0 +1,25 @@
+server {
+    listen       80;
+    server_name  _;
+
+    location / {
+        proxy_pass https://stats.uptimerobot.com/${UPTIMEROBOT_DASHBOARD_ID}/;
+        proxy_ssl_server_name on;
+        proxy_set_header Accept-Encoding "";
+        proxy_hide_header Content-Security-Policy;
+        sub_filter 'https://stats.uptimerobot.com/${UPTIMEROBOT_DASHBOARD_ID}' '/';
+        sub_filter 'https://stats.uptimerobot.com/' '/';
+        sub_filter '<script async src="https://www.googletagmanager.com/gtag/js?id=UA-1748433-46"></script>' '';
+        sub_filter_once off;
+    }
+
+    location /assets {
+        proxy_pass https://stats.uptimerobot.com/assets;
+        proxy_ssl_server_name on;
+    }
+
+    location /api {
+        proxy_pass https://stats.uptimerobot.com/api;
+        proxy_ssl_server_name on;
+    }
+}
