@@ -17,6 +17,11 @@ server {
         proxy_pass https://stats.uptimerobot.com/assets;
         proxy_ssl_server_name on;
     }
+   
+    location /build {
+        proxy_pass https://stats.uptimerobot.com/build;
+        proxy_ssl_server_name on;
+    }
 
     location /api {
         proxy_pass https://stats.uptimerobot.com/api;
