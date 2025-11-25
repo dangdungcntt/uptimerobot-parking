@@ -26,7 +26,7 @@ docker run -d \
 docker run -d \
     -e UPTIMEROBOT_STATUS_PAGE_ID=<status_page_id> \
     -p 8080:80 \
-    dangdungcntt/uptimerobot-parking
+    ghcr.io/dangdungcntt/uptimerobot-parking
 ```
 
 Your status page can access via: `http://localhost:8080`
